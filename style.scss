@@ -1,0 +1,121 @@
+:root {
+  --primary-color: #ff7433;
+  --light-text: #fff;
+  --dark-text: #000;
+  --dark-grey: #888;
+  --grey: #ccc;
+  --light-grey: #eee;
+}
+* {
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  .container {
+    min-width: 400px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    .todo_input {
+      display: flex;
+      justify-content: space-between;
+      input {
+        width: 100%;
+        border: none;
+        outline: none;
+        padding: 10px 16px;
+        border-radius: 44px;
+        transition: all 0.2s ease-in-out;
+      }
+      input:hover {
+        background-color: var(--light-grey);
+      }
+      button {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: all 0.2s ease-in-out;
+      }
+      button:hover {
+        background-color: var(--grey);
+      }
+      button:active {
+        background-color: var(--dark-grey);
+      }
+    }
+    .todo_list {
+      margin-top: 10px;
+      .item {
+        width: 500px;
+        height: 64px;
+        padding: 10px;
+        transition: all 0.2s ease-in-out;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        .fa-regular.fa-circle,
+        .fa-solid.fa-check,
+        .fa-solid.fa-trash {
+          cursor: pointer;
+          padding: 10px;
+          color: var(--dark-grey);
+          margin-right: 10px;
+        }
+        .fa-solid.fa-trash {
+          color: var(--dark-text);
+          margin: 0;
+        }
+        .fa-regular.fa-circle.inactive {
+          display: none;
+        }
+        .fa-solid.fa-check {
+          display: none;
+          color: var(--primary-color);
+          font-size: 20px;
+        }
+        .fa-solid.fa-check.active {
+          display: block;
+        }
+        .information {
+          flex: 1;
+          flex-wrap: wrap;
+          .label {
+            font-weight: 600;
+          }
+          .time {
+            font-weight: 300;
+            font-size: 0.8rem;
+          }
+        }
+        .information.inactive {
+          .label {
+            text-decoration: line-through;
+            color: var(--dark-grey);
+          }
+          .time {
+            display: none;
+          }
+        }
+        &:hover {
+          background-color: var(--light-grey);
+        }
+        .update {
+          display: none;
+        }
+        .update.active {
+          display: block;
+        }
+      }
+    }
+  }
+}
